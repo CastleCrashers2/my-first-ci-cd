@@ -81,3 +81,10 @@ jobs:
       - name: Run Tests with pytest
         run: |
           python -m pytest tests/ -v
+
+      # Шаг 7: Запуск flake8 для проверки стиля кода
+      - name: Run flake8 code style check # Запуск проверки стиля кода при помощи flake8
+        run: |
+          pip install flake8              #Установка flake8
+          flake8 . --count --select=E9, F63,F7,F82 --show-source --statistics     # Проверка критических ошибок: E9 - ошибка синтаксиса, идентификатора F63 - неправильное использование операторов сравнения,F7 - неправильные отступы, F82 - неопределённые имена
+          flake8 . --count --max-complexity=10 --max-line-length=127 --statistics # Общая прверка стиля: max-complexity=10 - максимальная сложность функций (количество независимых путей), max-line-length=88 - максимальная длина строки (Black formatter), statistics - показать статистику по типам ошибок
