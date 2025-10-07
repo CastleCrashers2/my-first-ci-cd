@@ -41,13 +41,16 @@ jobs:
         # -f json -o ... - вывести результат в файл в формате JSON
         # || true - это костыль, чтобы шаг не "падал" при найденных уязвимостях.
         # Мы обработаем результат на следующем шаге.
-       -name: Upload Bandit scan results # Загружаем результаты сканирования
+
+      # Шаг 4.1: Загружаем результаты сканирования Bandit
+      - name: Upload Bandit scan results
         uses: actions/upload-artifact@v4 # Действие для загрузки артефактов
         with:
-          name: bandit-security-report   # Имя под которым будет сохранёр артефакт
+          name: bandit-security-report   # Имя под которым будет сохранён артефакт
           path: bandit_results.json      # Путь к файлу для загрузки
           retention-days: 30             # Время хранения артефакта
-      # Шаг 4.1: Анализируем отчет Bandit и "валим" пайплайн при критических уязвимостях
+
+      # Шаг 4.2: Анализируем отчет Bandit и "валим" пайплайн при критических уязвимостях
       - name: Check Bandit Results
         id: bandit-check
         run: |
