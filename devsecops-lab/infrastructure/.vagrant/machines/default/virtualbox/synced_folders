@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant_data":{"guestpath":"/vagrant_data","hostpath":"C:/Users/renjy/Desktop/DevOps/my-first-ci-cd/devsecops-lab","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/renjy/Desktop/DevOps/my-first-ci-cd/devsecops-lab/infrastructure","disabled":false,"__vagrantfile":true}}}
